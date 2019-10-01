@@ -1,0 +1,24 @@
+t=[];
+l1=length(impuls);
+impuls2=zeros(l1,2);
+impuls2(:,1)=impuls(:,1);
+for x1=2:l1;
+    if impuls(x1,2)>1 & impuls(x1-1,2)<1;
+        impuls2(x1,2)=1;
+        t=[t,impuls(x1,1)];
+    end;
+end;
+l2=length(t);
+%for x2=1:l2-1;
+    %s(x2,1)=t(x2);
+    %s(x2,2)=(1/(t(x2+1)-t(x2)))/8
+%end;
+for x2=l2:-1:7;
+    s(x2-6,1)=t(x2);
+    s(x2-6,2)=1/(t(x2)-t(x2-6));
+end;
+%s(257:260,2)=s(257:260,2)*(-1);
+%s(261,1)=2;
+%s(261,2)=0;
+s1=s(:,1);
+s2=s(:,2);
